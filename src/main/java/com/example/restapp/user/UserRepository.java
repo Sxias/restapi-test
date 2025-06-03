@@ -20,8 +20,12 @@ public class UserRepository {
     }
 
     public User findUserByName(String name) {
-        return em.createQuery("select u from User u where u.name = :name", User.class)
-                .setParameter("name", name)
-                .getSingleResult();
+        try {
+            return em.createQuery("select u from User u where u.name = :name", User.class)
+                    .setParameter("name", name)
+                    .getSingleResult();
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
