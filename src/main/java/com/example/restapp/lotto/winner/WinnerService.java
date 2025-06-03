@@ -17,7 +17,7 @@ public class WinnerService {
 
     @Transactional
     public void checkWinner(LottoResponse.DTO lottoSet) {
-        Set<Integer> latestLotto = lottoSet.getLottoSet();
+        Set<Integer> latestLotto = lottoSet.getNumbers();
         List<Lotto> candidates = winnerRepository.findAllLottos();
 
         for (Lotto candidate : candidates) {
