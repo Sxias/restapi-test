@@ -7,10 +7,10 @@ import java.util.Set;
 public class LottoResponse {
     @Data
     public static class DTO {
-        private Set<Integer> lottoSet;
+        private Set<Integer> numbers;
 
         public DTO(Set<Integer> lottoSet) {
-            this.lottoSet = lottoSet;
+            this.numbers = lottoSet;
         }
     }
 }
