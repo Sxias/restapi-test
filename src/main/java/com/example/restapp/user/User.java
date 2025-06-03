@@ -1,6 +1,7 @@
 package com.example.restapp.user;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,4 +15,10 @@ public class User {
     private Long id;
 
     private String name;
+
+    @Builder
+    public User(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
