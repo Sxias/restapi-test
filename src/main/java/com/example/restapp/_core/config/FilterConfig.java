@@ -22,7 +22,7 @@ public class FilterConfig {
         registrationBean.setOrder(1); // 필터 순서 설정
         return registrationBean;
     }
-
+  
     @Bean
     public FilterRegistrationBean<UriValidationFilter> validationFilter() {
         FilterRegistrationBean<UriValidationFilter> registrationBean = new FilterRegistrationBean<>();
