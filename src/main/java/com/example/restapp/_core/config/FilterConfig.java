@@ -1,6 +1,7 @@
 package com.example.restapp._core.config;
 
 import com.example.restapp._core.filter.LogFilter;
+import com.example.restapp._core.filter.UriValidationFilter;
 import com.example.restapp.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -19,6 +20,15 @@ public class FilterConfig {
         registrationBean.setFilter(new LogFilter());
         registrationBean.addUrlPatterns("/*"); // 모든 요청에 적용
         registrationBean.setOrder(1); // 필터 순서 설정
+        return registrationBean;
+    }
+
+    @Bean
+    public FilterRegistrationBean<UriValidationFilter> validationFilter() {
+        FilterRegistrationBean<UriValidationFilter> registrationBean = new FilterRegistrationBean<>();
+        registrationBean.setFilter(new UriValidationFilter());
+        registrationBean.addUrlPatterns("/*"); // 모든 요청에 적용
+        registrationBean.setOrder(2); // 필터 순서 설정
         return registrationBean;
     }
 }
