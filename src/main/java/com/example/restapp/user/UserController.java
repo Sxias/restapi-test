@@ -17,9 +17,9 @@ public class UserController {
     }
 
     @PutMapping("/users/{id}")
-    public String updateUser(@PathVariable("id") long id, @RequestBody UserRequest.DTO reqDTO) {
-
-        return null;
+    public ResponseEntity<?> updateUser(@PathVariable("id") long id, @RequestBody UserRequest.DTO reqDTO) {
+        UserResponse.DTO respDTO = userService.updateUser(reqDTO, id);
+        return Resp.ok(respDTO);
     }
 
     @PostMapping("/users")
